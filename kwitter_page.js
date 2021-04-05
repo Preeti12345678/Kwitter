@@ -28,7 +28,7 @@ function getData() { firebase.database().ref("/"+room_name).on('value', function
 //Start code
 console.log(firebase_message_id);
 console.log(message_data);
-name=message_data['name'];
+var name=message_data['name'];
 message=message_data['message'];
 like=message_data['like'];
 name_with_tag="<h4>"+name+"<img class='user_tick' src='tick.png'></h4>";
@@ -49,7 +49,7 @@ function updateLike(message_id){
   updatedLikes=Number(likes)+1;
   console.log(updatedLikes);
   firebase.database().ref(room_name).child(message_id).update({
-       Like: updatedLikes
+       like: updatedLikes
   });
 }
 
